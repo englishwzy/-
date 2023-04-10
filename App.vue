@@ -22,6 +22,9 @@
 	page {
 		background-color: #f5f5f5;
 	}
+  *{
+    box-sizing: border-box;
+  }
 
 	/* #endif */
 	.example-info {

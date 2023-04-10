@@ -1,6 +1,7 @@
 <template>
   <view>
-    购物车
+    商品详情
+    大撒大网的
   </view>
 </template>
 
@@ -10,6 +11,9 @@
       return {
         
       };
+    },
+    onLoad(value){
+      console.log("sss",value);
     }
   }
 </script>
