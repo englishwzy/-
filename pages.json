@@ -49,6 +49,15 @@
                 }
                 
                 }
+                ,{
+                    "path" : "goodlist/goodlist",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
             ]
     }
   ],
