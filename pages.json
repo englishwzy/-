@@ -28,40 +28,36 @@
     }
 
   }],
-  "subPackages": [
-    {
-      "root": "subpkg",
-      "pages": [{
-                    "path" : "goods_detail/goods_detail",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-                
-                ,{
-                    "path" : "goodlist/goodlist",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-                ,{
-                    "path" : "search/search",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "买点啥",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-            ]
-    }
-  ],
+  "subPackages": [{
+    "root": "subpkg",
+    "pages": [{
+        "path": "goods_detail/goods_detail",
+        "style": {
+          "navigationBarTitleText": "",
+          "enablePullDownRefresh": false
+        }
+
+      }
+
+      , {
+        "path": "goodlist/goodlist",
+        "style": {
+          "navigationBarTitleText": "买点啥",
+          "enablePullDownRefresh": true,
+          "onReachBottomDistance": 150
+          
+        }
+
+      }, {
+        "path": "search/search",
+        "style": {
+          "navigationBarTitleText": "买点啥",
+          "enablePullDownRefresh": false
+        }
+
+      }
+    ]
+  }],
   "globalStyle": {
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "买点啥",
