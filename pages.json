@@ -40,8 +40,9 @@
                 }
                 
                 }
+                
                 ,{
-                    "path" : "goods_detail/goods_detail",
+                    "path" : "goodlist/goodlist",
                     "style" :                                                                                    
                 {
                     "navigationBarTitleText": "",
@@ -50,10 +51,10 @@
                 
                 }
                 ,{
-                    "path" : "goodlist/goodlist",
+                    "path" : "search/search",
                     "style" :                                                                                    
                 {
-                    "navigationBarTitleText": "",
+                    "navigationBarTitleText": "买点啥",
                     "enablePullDownRefresh": false
                 }
                 

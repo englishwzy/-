@@ -1,5 +1,8 @@
 <template>
   <view>
+    <view class="search">
+        <search @click="gotoSearch"></search>  
+    </view>
     <!-- 1.轮播图 -->
     <swiper class="swiper" indicator-dots indicator-color="#fff" indicator-active-color="#cc0003" autoplay
       interval="5000" circular>
@@ -106,11 +109,23 @@
         console.log(this.floor);
 
       }
+      ,gotoSearch(){
+        uni.navigateTo({
+          url:"/subpkg/search/search",
+        })
+      }
     }
   }
 </script>
 
 <style lang="scss">
+  .search{
+    // sticky在到达0之前是相对布局，能动
+    // 到达0之后变为固定相当于fixed
+    position: sticky;
+    top:0;
+    z-index:999;
+  }
   .swiper {
     height: 330rpx;
 
@@ -127,7 +142,7 @@
 
   // 分类导航
   .nav {
-    width: 100%;
+    // width: 100%;
     display: flex;
     padding: 20rpx;
     .navlist {
@@ -178,12 +193,12 @@
           width: 200rpx;
           height:190rpx;
           &:nth-child(2n+1){
-            margin-bottom:20rpx;
-            margin-right:20rpx;
+            margin-bottom:10rpx;
+            margin-right:10rpx;
           }
           &:nth-child(2n){
-            margin-bottom:20rpx;
-            margin-left:20rpx;
+            margin-bottom:10rpx;
+            margin-left:10rpx;
           }
           
           image{

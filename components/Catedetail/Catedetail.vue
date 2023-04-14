@@ -45,8 +45,8 @@
        .good-item{
          text-align: center;
          width:180rpx;
-         padding-left:20rpx;
-         margin-bottom: 20rpx;
+         padding-left:10rpx;
+         margin-bottom: 10rpx;
          image{
            width:120rpx;
            height:120rpx;

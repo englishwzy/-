@@ -1,4 +1,10 @@
 <template>
+  <view class="">
+    <!-- 自定义组件的背景颜色和圆角大小 -->
+  <!-- <search :bgcolor="'skyblue'"></search>   -->
+  <view class="search">
+    <search @click="gotoSearch"></search>  
+  </view>
   <view class="cate">
     <scroll-view scroll-y="true" class="side" show-scrollbar :style="'height:'+wh+'px;'">
       <view class="cate-item" v-for="sideitem in cateList" :key="sideitem.cat_id" @click="changeActive(sideitem)" :class="{active:activeID==sideitem.cat_id}">
@@ -9,6 +15,7 @@
     <view class="right">
       <Catedetail :activeID = "activeID" :activeItem ="activeItem" ref="goodsdetail"></Catedetail>
     </view>
+  </view>
   </view>
 </template>
 
@@ -24,9 +31,9 @@
     },
     onLoad(){
       this.getcateSide();
-      // 	windowHeight	可使用窗口高度
+      // 	windowHeight	可使用窗口高度,用于设置滚动的高度
      const systeminfo =  uni.getSystemInfoSync();
-      this.wh = systeminfo.windowHeight;
+      this.wh = systeminfo.windowHeight-50;
     },
     methods:{
       async getcateSide(){
@@ -48,11 +55,21 @@
         this.$refs.goodsdetail.scrollTop = this.$refs.goodsdetail.scrollTop==0?1:0;
        
       }
+      ,gotoSearch(){
+        uni.navigateTo({
+          url:"/subpkg/search/search",
+        })
+      }
     }
   }
 </script>
 
 <style lang="scss">
+  .search{
+    position:sticky;
+    top:0;
+    z-index:999;
+  }
   .cate{
     width:100%;
     // background-color: pink;
