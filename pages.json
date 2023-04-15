@@ -33,7 +33,7 @@
     "pages": [{
         "path": "goods_detail/goods_detail",
         "style": {
-          "navigationBarTitleText": "",
+          "navigationBarTitleText": "买点啥",
           "enablePullDownRefresh": false
         }
 

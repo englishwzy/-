@@ -14,6 +14,7 @@
 </script>
 
 <style lang="scss">
+  
 	/*每个页面公共css */
 	@import '@/uni_modules/uni-scss/index.scss';
 	/* #ifndef APP-NVUE */
@@ -24,6 +25,7 @@
 	}
   *{
     box-sizing: border-box;
+    font-size: 24rpx;
   }
 
 	/* #endif */

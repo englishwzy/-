@@ -12,7 +12,7 @@
       </view>
       <hr>
     </scroll-view>
-    <view class="right">
+    <view class="right" :style="'height:'+wh+'px;'">
       <Catedetail :activeID = "activeID" :activeItem ="activeItem" ref="goodsdetail"></Catedetail>
     </view>
   </view>
@@ -44,7 +44,7 @@
        }
        this.cateList = data.message;
        this.activeItem =this.cateList[0];
-       console.log(this.cateList);
+       console.log("1",this.cateList);
       }
       // 点击改变左侧导航的颜色
       ,changeActive(item){
