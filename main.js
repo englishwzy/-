@@ -5,11 +5,19 @@ import {
 uni.$http = $http;
 // 配置请求根路径
 $http.baseUrl = 'https://www.uinav.com';
+
 // 请求开始之前做一些事情      请求拦截器
 $http.beforeRequest = function(options) {
   uni.showLoading({
     title: '数据加载中...',
   })
+  // console.log(options);
+  // console.log(store);
+  if(options.url.indexOf("/my/")!==-1){
+    options.header = {
+      Authorization: store.state.user.token,
+    }
+  }
 }
 // 请求完成之后做一些事情    响应拦截器
 $http.afterRequest = function() {
