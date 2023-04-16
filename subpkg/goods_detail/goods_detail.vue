@@ -30,11 +30,15 @@
     </view>
 
     <uni-goods-nav :fill="true" :options="options" :button-group="customButtonGroup" @click="onClick"
-      @buttonClick="addCart" class="nav" />
+      @buttonClick="addCart2" class="nav" />
   </view>
 </template>
 
 <script>
+  import {
+    mapActions,
+    mapGetters
+  } from "vuex";
   export default {
     data() {
       return {
@@ -53,7 +57,7 @@
           }, {
             icon: 'cart',
             text: '购物车',
-            info: 2
+            info: 0
           }
         ],
         customButtonGroup: [{
@@ -72,8 +76,11 @@
     onLoad(value) {
       console.log("sss", value.goods_id);
       this.getGoodInfo(value.goods_id || value.good_id);
+      // 使用watch的复杂形式代替带onload中写
+      // this.options[2].info = this.totalSum;
     },
     methods: {
+      ...mapActions("cart", ["addCart"]),
       async getGoodInfo(id) {
           const {
             statusCode,
@@ -90,8 +97,21 @@
 
         // 右侧按钮点击事件
         ,
-      addCart(e) {
-        console.log(e);
+      addCart2(e) {
+
+        if (e.content.text == "加入购物车") {
+          // console.log(e);
+          const good = {
+            goods_id: this.goods_info.goods_id, // 商品的Id
+            goods_name: this.goods_info.goods_name, // 商品的名称
+            goods_price: this.goods_info.goods_price, // 商品的价格
+            goods_count: 1, // 商品的数量
+            goods_small_logo: this.goods_info.goods_small_logo, // 商品的图片
+            goods_state: true // 商品的勾选状态
+          }
+          // dispatch到action中
+          this.addCart(good);
+        }
       },
       // 左侧点击事件
       onClick(e) {
@@ -103,6 +123,24 @@
         }
       }
 
+    }
+
+    ,
+    computed: {
+      ...mapGetters("cart", ['totalSum']),
+    },
+    watch: {
+      // totalSum(newValue,old){
+      //   // console.log(newValue,old);
+      //   this.options[2].info = newValue;
+      // }
+      totalSum: {
+        handler(newValue, old) {
+          // console.log(newValue,old);
+          this.options[2].info = newValue;
+        },
+        immediate:true,
+      }
     }
   }
 </script>

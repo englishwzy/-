@@ -9,7 +9,7 @@
 		},
 		onHide: function() {
 			console.log('App Hide')
-		}
+		},
 	}
 </script>
 
@@ -26,6 +26,8 @@
   *{
     box-sizing: border-box;
     font-size: 24rpx;
+    margin:0;
+    padding:0;
   }
 
 	/* #endif */
